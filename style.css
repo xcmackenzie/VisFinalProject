@@ -1,0 +1,63 @@
+.title {
+    text-align: center;
+    padding: 10px;
+    margin: 25px;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    background-color: lightblue;
+    padding: 10px;
+    margin: 20px;
+    margin-top: 5px;
+    border: 2px solid dimgrey;
+}
+
+body {
+    background-color: whitesmoke;
+    margin: 5px;
+    padding: 20px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.form-control {
+    text-align: center;
+    width: 15%;
+}
+
+.select-year {
+    margin: 5px;
+    font-weight: bolder;
+}
+
+
+.button {
+    border: 0.1rem solid teal;
+    background-color: teal;
+}
+
+p {
+    margin: 10px;
+    text-align: center;
+}
+
+select {
+    background-color: white;
+    border: 0.1rem solid grey;
+}
+
+h2 {
+    text-align: center;
+    color: darkgrey;
+    font-weight: bold;
+}
+
+h4 {
+    text-align: center;
+}
+
+.year-input{
+    display: flex;
+    justify-content: center;
+}
