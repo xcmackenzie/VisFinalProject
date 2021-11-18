@@ -1,51 +1,61 @@
-Year,Ethnicity,Total,Percent
-1976,Black,361,3.65
-1976,Native American,5,0.05
-1976,Asian,78,0.79
-1976,Hispanic,73,0.74
-1976,White,9340,94.35
-1980,Black,259,2.41
-1980,Native American,9,0.08
-1980,Asian,200,1.86
-1980,Hispanic,193,1.79
-1980,White,10026,93.12
-1985,Black,235,2.21
-1985,Native American,19,0.18
-1985,Asian,377,3.55
-1985,Hispanic,371,3.49
-1985,White,9518,89.52
-1990,Black,301,2.95
-1990,Native American,9,0.09
-1990,Asian,507,4.96
-1990,Hispanic,401,3.92
-1990,White,9000,88.08
-1995,Black,356,3.86
-1995,Native American,26,0.28
-1995,Asian,703,7.62
-1995,Hispanic,465,5.04
-1995,White,7671,83.19
-2000,Black,425,4.76
-2000,Native American,37,0.41
-2000,Asian,732,8.2
-2000,Hispanic,491,5.5
-2000,White,7245,81.13
-2005,Black,552,6.12
-2005,Native American,30,0.33
-2005,Asian,809,8.97
-2005,Hispanic,705,7.82
-2005,White,6923,76.76
-2010,Black,465,5.11
-2010,Native American,17,0.19
-2010,Asian,910,10
-2010,Hispanic,762,8.38
-2010,White,6034,62.74
-2015,Black,361,3.93
-2015,Native American,6,0.07
-2015,Asian,917,9.98
-2015,Hispanic,222,2.42
-2015,White,5767,62.74
-2020,Black,320,3.39
-2020,Native American,2,0.02
-2020,Asian,1004,10.63
-2020,Hispanic,250,2.65
-2020,White,5474,57.96
+Year,Ethnicity,Total,Percent,Source
+1976,Black,361,3.65,BC
+1976,Native American,5,0.05,BC
+1976,Asian,78,0.79,BC
+1976,Hispanic,73,0.74,BC
+1976,White,9340,94.35,BC
+1980,Black,259,2.41,BC
+1980,Native American,9,0.08,BC
+1980,Asian,200,1.86,BC
+1980,Hispanic,193,1.79,BC
+1980,White,10026,93.12,BC
+1980,Black,,11.70,US
+1980,Native American,,0.63,US
+1980,Asian,,1.55,US
+1980,Hispanic,,6.45,US
+1980,White,,79.56,US
+1985,Black,235,2.21,BC
+1985,Native American,19,0.18,BC
+1985,Asian,377,3.55,BC
+1985,Hispanic,371,3.49,BC
+1985,White,9518,89.52,BC
+1990,Black,301,2.95,BC
+1990,Native American,9,0.09,BC
+1990,Asian,507,4.96,BC
+1990,Hispanic,401,3.92,BC
+1990,White,9000,88.08,BC
+1995,Black,356,3.86,BC
+1995,Native American,26,0.28,BC
+1995,Asian,703,7.62,BC
+1995,Hispanic,465,5.04,BC
+1995,White,7671,83.19,BC
+2000,Black,425,4.76,BC
+2000,Native American,37,0.41,BC
+2000,Asian,732,8.2,BC
+2000,Hispanic,491,5.5,BC
+2000,White,7245,81.13,BC
+2005,Black,552,6.12,BC
+2005,Native American,30,0.33,BC
+2005,Asian,809,8.97,BC
+2005,Hispanic,705,7.82,BC
+2005,White,6923,76.76,BC
+2010,Black,465,5.11,BC
+2010,Native American,17,0.19,BC
+2010,Asian,910,10,BC
+2010,Hispanic,762,8.38,BC
+2010,White,6034,62.74,BC
+2015,Black,361,3.93,BC
+2015,Native American,6,0.07,BC
+2015,Asian,917,9.98,BC
+2015,Hispanic,222,2.42,BC
+2015,White,5767,62.74,BC
+2020,Black,320,3.39,BC
+2020,Native American,2,0.02,BC
+2020,Asian,1004,10.63,BC
+2020,Hispanic,250,2.65,BC
+2020,White,5474,57.96,BC
+2020,Black,,9.38,US
+2020,Native American,,1.12,US
+2020,Asian,,6.21,US
+2020,Hispanic,,18.73,US
+2020,White,,57.84,US
