@@ -20,7 +20,7 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
 
                     document.getElementById("state-name").innerHTML = clicked
 
-                    document.getElementById("state-info").innerHTML = `1976: ${values[9]}<br>
+                    document.getElementById("state-info").innerHTML = `<br>1976: ${values[9]}<br>
                         1980: ${values[8]}<br>
                         1985: ${values[7]}<br>
                         1990: ${values[6]}<br>
@@ -38,7 +38,7 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
 
                     document.getElementById("state-name").innerHTML = clicked
 
-                    document.getElementById("state-info").innerHTML = `1976: ${values[9]}<br>
+                    document.getElementById("state-info").innerHTML = `<br>1976: ${values[9]}<br>
                         1980: ${values[8]}<br>
                         1985: ${values[7]}<br>
                         1990: ${values[6]}<br>
