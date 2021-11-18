@@ -72,32 +72,57 @@ export default function Map(container, data, statemap, year) {
         .style("stroke", "midnightblue")
         .style("stroke-width", "0.5px")
 
-    map.on("mouseenter", (event, d) => {
-        
-        filtered = data.filter(d => d.Year == year)
-        let pos = d3.pointer(event, window)
+    function on_events(data) {
 
-        d3.select("#map-tooltip")
-            .style('left', pos[0] + "px")
-            .style('top', pos[1] + "px")
-            .html(() => {
-                if (d.properties.Value === null) {
-                    return `State: ${d.properties.name} <br>
-                    Number of Students: N/A <br>`
-                }
-                else {
-                    return `State: ${d.properties.name} <br>
-                    Number of Students: ${d3.format(",")(d.properties.Value)} <br>`
-                }
+        map.on("mouseenter", (event, d) => {
+
+            d3.select(event.currentTarget)
+                    .transition()
+                    .duration(100)
+                    .attr("fill", "midnightblue")
+        
+            let pos = d3.pointer(event, window)
+    
+            d3.select("#map-tooltip")
+                .style('left', pos[0] + "px")
+                .style('top', pos[1] + "px")
+                .html(() => {
+                    if (d.properties.Value === null) {
+                        return `State: ${d.properties.name} <br>
+                        Number of Students: N/A <br>`
+                    }
+                    else {
+                        return `State: ${d.properties.name} <br>
+                        Number of Students: ${d3.format(",")(d.properties.Value)} <br>`
+                    }
+                })
+                
+            d3.select('#map-tooltip').classed("hidden", false)
+                
             })
-            
-        d3.select('#map-tooltip').classed("hidden", false)
-            
-        })
-        .on("mouseleave", (event, d) => {
-            d3.select("#map-tooltip").classed("hidden", true)
-        })
-        .on("click", (event, d) => clicked(d))
+            .on("mouseleave", (event, d) => {
+
+                filtered = data.filter(d => d.Year == this.year)
+
+                for (const feat of statemap.features) {
+                    var state = feat.properties.name
+                    for (const object of filtered) {
+                        var data_state = object.Location
+                        if (state == data_state) {
+                            feat.properties.Value = object.Value
+                        }
+                    }
+                }
+
+                d3.select(event.currentTarget)
+                    .transition()
+                    .duration(100)
+                    .attr("fill", d => colorScale(d.properties.Value))
+
+                d3.select("#map-tooltip").classed("hidden", true)
+            })
+            .on("click", (event, d) => clicked(d))    
+    }
 
     // Click listener and click function
     const listeners = {"click": null}
@@ -111,6 +136,8 @@ export default function Map(container, data, statemap, year) {
     }
     
     return {
-        on
+        on_events,
+        on,
+        year
     }
 }
