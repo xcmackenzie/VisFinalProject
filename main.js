@@ -20,16 +20,16 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
 
                     document.getElementById("state-name").innerHTML = clicked
 
-                    document.getElementById("state-info").innerHTML = `1976: ${values[0]}<br>
-                        1980: ${values[1]}<br>
-                        1985: ${values[2]}<br>
-                        1990: ${values[3]}<br>
-                        1995: ${values[4]}<br>
-                        2000: ${values[5]}<br>
-                        2005: ${values[6]}<br>
-                        2010: ${values[7]}<br>
-                        2015: ${values[8]}<br>
-                        2020: ${values[9]}`
+                    document.getElementById("state-info").innerHTML = `1976: ${values[9]}<br>
+                        1980: ${values[8]}<br>
+                        1985: ${values[7]}<br>
+                        1990: ${values[6]}<br>
+                        1995: ${values[5]}<br>
+                        2000: ${values[4]}<br>
+                        2005: ${values[3]}<br>
+                        2010: ${values[2]}<br>
+                        2015: ${values[1]}<br>
+                        2020: ${values[0]}`
                 })
 
                 map2020.on("click", (clicked) => {
