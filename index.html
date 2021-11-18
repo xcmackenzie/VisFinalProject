@@ -15,6 +15,9 @@
     <script src="https://unpkg.com/topojson@3"></script>
     <script defer src="main.js" defer type="module"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.18.2"></script>
 
 </head>
 <body>
@@ -24,36 +27,45 @@
                 Boston College Demographics
             </h1>
         </div>        
-        <div class = "year-dropdown">
-            <p class = "select-year">Select Year:</p>
-            <div class = "year-input">
-                <select id = "year" class = "form-control">
-                    <option value = "2004">1976-1980</option>
-                    <option value = "2010">1980-1985</option>
-                    <option value = "2016">1985-1990</option>
-                    <option value = "2017">1990-1995</option>
-                    <option value = "2018">1995-2000</option>
-                    <option value = "2019">2000-2005</option>
-                    <option value = "2020">2005-2010</option>
-                    <option value = "2020">2010-2015</option>
-                    <option value = "2020">2015-2020</option>
-
-                </select>
-            </div>
-        </div>
         <div class = "viz-container">
             <div class = "row gender">
                 <div class = "line-chart"></div>
                 <div class = "pie-chart"></div>
             </div>
+            <h3>How has the distribution of ethnicities changed over time? How does this compare to the ethnic distribution of the country overall?</h3>
             <div class = "row ethnicity">
-                <div class = "bar-chart"></div>
-                <div class = "pie-chart"></div>
-            </div>            
-            <div class = "row geo">
-                <div class = "top-5"></div>
-                <div class = "map"></div>
-                <div class = "line-chart"></div>
+                <div class = "column">
+                    <div id = "stacked-area"></div>
+                </div>
+                <div class = "column">
+                    <div id = "dot-plot"></div>
+                </div>
+            </div>     
+            <h3>How has the geographic distribution of students at BC changed over time?</h3>
+            <div class = "row map">
+                <div class = "column">
+                    <p><strong>Number of Students from Each State in 1976</strong></p>
+                    <div class = "map-1976"></div>
+                </div>
+                <div class = "column">
+                    <p id = "state-name"><br>Alabama</p>
+                    <p id = "state-info">
+                        1976: 2<br>
+                        1980: 1 <br>
+                        1985: 3<br>
+                        1990: 11<br>
+                        1995: 13<br>
+                        2000: 10<br>
+                        2005: 10<br>
+                        2010: 11<br>
+                        2015: 7<br>
+                        2020: 21
+                    </p>
+                </div>
+                <div class = "column">
+                    <p><strong>Number of Students from Each State in 2020</strong></p>
+                    <div class = "map-2020"></div>
+                </div>
             </div>
             <div class= "row enrollment">
                 <div class = "bar-chart"></div>
@@ -61,12 +73,127 @@
             </div>
         </div>
     </div>
-    <div id = "map-tooltip" class = "hidden"></div>
-    <div id="bar-tooltip" class="hidden">
-    <div id="line-tooltip" class="hidden">
-    <div id="area-tooltip" class="hidden">
-    <div id="pie-tooltip" class="hidden">
-    <div id="top-five-tooltip" class="hidden">
+    <div id ="map-tooltip" class = "hidden tooltip"></div>
+    <div id = "state-line-tooltip" class = "hidden tooltip"></div>
+    <div id="bar-tooltip" class="hidden tooltip">
+    <div id="line-tooltip" class="hidden tooltip">
+    <div id="area-tooltip" class="hidden tooltip">
+    <div id="pie-tooltip" class="hidden tooltip">
+    <div id="top-five-tooltip" class="hidden tooltip">
+    <script>
+        var stacked_area = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": "Number of Students of Each Ethnicity by Year",
+            "data": {"url": "https://raw.githubusercontent.com/xcmackenzie/VisFinalProject/master/data/bcethnicity.csv"},
+            "width": 350,
+            "height": 250,
+            "transform": [
+                {"filter": "datum.Source == \"BC\""}
+                ],
+            "params": [{
+                "name": "grid",
+                "select": "interval",
+                "bind": "scales"
+            }],
+            "mark": {"type": "area", "tooltip": true},
+            "encoding": {
+                "x": {
+                    "field": "Year",
+                    "title": "Year",
+                    "type": "temporal"
+                },
+                "y": {
+                    "field": "Total",
+                    "title": "Total",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "field": "Ethnicity",
+                    "type": "nominal",
+                    "scale": {"scheme": "set3"}
+                }
+            }
+        }
 
+        var dot_plot = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": "Percentage of Students of Each Ethnicity at BC vs. in the US",
+            "data": {"url": "https://raw.githubusercontent.com/xcmackenzie/VisFinalProject/master/data/bcethnicity.csv",
+            "format": {
+                "type": "csv",
+                "parse": {
+                "Year": "number"
+                }
+                }
+            },
+            "transform": [
+                {"filter": "datum.Year == Yr_Year"}
+            ],
+            "width": 400,
+            "height": 250,
+            "encoding": {
+                "x": {
+                "field": "Percent",
+                "type": "quantitative",
+                "title": "Percent"
+                },
+                "y": {
+                "field": "Ethnicity",
+                "type": "nominal",
+                "title": "Country",
+                "axis": {
+                    "offset": 5,
+                    "ticks": false,
+                    "minExtent": 70,
+                    "domain": false
+                }
+                }
+            },
+            "layer": [
+                {
+                "mark": "line",
+                "encoding": {
+                    "detail": {
+                    "field": "Ethnicity",
+                    "type": "nominal"
+                    },
+                }
+                },
+                {
+                "params": [{
+                    "name": "Yr",
+                    "select": {"type": "point", "fields": ["Year"]},
+                    "bind": {
+                    "Year": {
+                        "input": "range",
+                        "min": 1980,
+                        "max": 2020,
+                        "step": 40}
+                    }
+                }],
+                "mark": {
+                    "type": "point",
+                    "filled": true,
+                    "tooltip": true
+                },
+                "encoding": {
+                    "color": {
+                    "field": "Source",
+                    "type": "ordinal",
+                    "title": "Source",
+                    "scale": {
+                        "domain": ["BC", "US"],
+                        "range": ["darkred", "grey"]
+                    }
+                    },
+                    "size": {"value": 100},
+                    "opacity": {"value": 1}
+                    }
+                }
+            ]
+        }
+        vegaEmbed('#stacked-area', stacked_area);
+        vegaEmbed('#dot-plot', dot_plot);
+    </script>
 </body>
 </html>
