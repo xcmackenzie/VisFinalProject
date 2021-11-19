@@ -111,7 +111,27 @@
                     "field": "Ethnicity",
                     "type": "nominal",
                     "scale": {"scheme": "set3"}
-                }
+                },
+                "tooltip": [
+                    {
+                        "field": "Ethnicity",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "Year",
+                        "type": "temporal",
+                        "timeUnit": "year",
+                        "title": "Year"
+                    },
+                    {
+                        "field": "Total",
+                        "type": "quantitative"
+                    },
+                    {
+                        "field": "Percent",
+                        "type": "quantitative"
+                    }
+                ],
             }
         }
 
@@ -133,20 +153,20 @@
             "height": 250,
             "encoding": {
                 "x": {
-                "field": "Percent",
-                "type": "quantitative",
-                "title": "Percent"
+                    "field": "Percent",
+                    "type": "quantitative",
+                    "title": "Percent"
                 },
                 "y": {
-                "field": "Ethnicity",
-                "type": "nominal",
-                "title": "Country",
-                "axis": {
-                    "offset": 5,
-                    "ticks": false,
-                    "minExtent": 70,
-                    "domain": false
-                }
+                    "field": "Ethnicity",
+                    "type": "nominal",
+                    "title": "Ethnicity",
+                    "axis": {
+                        "offset": 5,
+                        "ticks": false,
+                        "minExtent": 70,
+                        "domain": false
+                    }
                 }
             },
             "layer": [
