@@ -24,6 +24,11 @@ Year,Ethnicity,Total,Percent,Source
 1990,Asian,507,4.96,BC
 1990,Hispanic,401,3.92,BC
 1990,White,9000,88.08,BC
+1990,Black,,12.06,US
+1990,Native American,,0.79,US
+1990,Asian,,2.92,US
+1990,Hispanic,,8.99,US
+1990,White,,75.64,US
 1995,Black,356,3.86,BC
 1995,Native American,26,0.28,BC
 1995,Asian,703,7.62,BC
@@ -34,6 +39,11 @@ Year,Ethnicity,Total,Percent,Source
 2000,Asian,732,8.2,BC
 2000,Hispanic,491,5.5,BC
 2000,White,7245,81.13,BC
+2000,Black,,12.32,US
+2000,Native American,,0.88,US
+2000,Asian,,3.78,US
+2000,Hispanic,,12.55,US
+2000,White,,69.13,US
 2005,Black,552,6.12,BC
 2005,Native American,30,0.33,BC
 2005,Asian,809,8.97,BC
@@ -44,6 +54,11 @@ Year,Ethnicity,Total,Percent,Source
 2010,Asian,910,10,BC
 2010,Hispanic,762,8.38,BC
 2010,White,6034,62.74,BC
+2010,Black,,12.61,US
+2010,Native American,,0.95,US
+2010,Asian,,4.93,US
+2010,Hispanic,,16.35,US
+2010,White,,63.75,US
 2015,Black,361,3.93,BC
 2015,Native American,6,0.07,BC
 2015,Asian,917,9.98,BC
@@ -54,7 +69,7 @@ Year,Ethnicity,Total,Percent,Source
 2020,Asian,1004,10.63,BC
 2020,Hispanic,250,2.65,BC
 2020,White,5474,57.96,BC
-2020,Black,,9.38,US
+2020,Black,,12.40,US
 2020,Native American,,1.12,US
 2020,Asian,,6.21,US
 2020,Hispanic,,18.73,US

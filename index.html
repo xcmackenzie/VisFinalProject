@@ -84,7 +84,7 @@
         var stacked_area = {
             "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
             "title": "Number of Students of Each Ethnicity by Year",
-            "data": {"url": "https://raw.githubusercontent.com/xcmackenzie/VisFinalProject/master/data/bcethnicity.csv"},
+            "data": {"url": "data/bcethnicity.csv"},
             "width": 350,
             "height": 250,
             "transform": [
@@ -118,7 +118,7 @@
         var dot_plot = {
             "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
             "title": "Percentage of Students of Each Ethnicity at BC vs. in the US",
-            "data": {"url": "https://raw.githubusercontent.com/xcmackenzie/VisFinalProject/master/data/bcethnicity.csv",
+            "data": {"url": "data/bcethnicity.csv",
             "format": {
                 "type": "csv",
                 "parse": {
@@ -168,7 +168,7 @@
                         "input": "range",
                         "min": 1980,
                         "max": 2020,
-                        "step": 40}
+                        "step": 10}
                     }
                 }],
                 "mark": {
