@@ -14,9 +14,12 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                 label.innerHTML = "Select Year"
 
                 // Maps
-                const map1976 = Map(".map-1976", states, statemap, 1976)
+                var filtered = states.filter(d => d.Year == 1976 || d.Year == 2020)
+                var domain = d3.extent(filtered, d => d.Value)
+
+                const map1976 = Map(".map-1976", states, statemap, 1976, domain)
                 map1976.on_events(states)
-                const map2020 = Map(".map-2020", states, statemap, 2020)
+                const map2020 = Map(".map-2020", states, statemap, 2020, domain)
                 map2020.on_events(states)
 
                 map1976.on("click", (clicked) => {

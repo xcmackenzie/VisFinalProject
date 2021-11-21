@@ -1,7 +1,5 @@
 
-export default function Map(container, data, statemap, year) {
-
-    console.log(statemap)
+export default function Map(container, data, statemap, year, domain) {
 
     // Create SVG
     let outerWidth = 400
@@ -18,7 +16,7 @@ export default function Map(container, data, statemap, year) {
         .attr("transform", `translate(${margin.left}, ${margin.right})`)
 
     let colorScale = d3.scaleSqrt()
-        .domain([0, d3.max(data, d => d.Value)])
+        .domain(domain)
         .range(["white", "blue"])
 
     // Draw Map
