@@ -81,6 +81,11 @@
                 <div class = "bar-chart"></div>
                 <div class = "area-chart"></div>
             </div>
+
+            <h3>How Do BC's Demographics Compare to Peer Institutions?</h3>
+            <div class = "column">
+                <div id = "stacked-bar"></div>
+            </div>
         </div>
     </div>
     <div id ="map-tooltip" class = "hidden tooltip"></div>
@@ -224,6 +229,50 @@
         }
         vegaEmbed('#stacked-area', stacked_area);
         vegaEmbed('#dot-plot', dot_plot);
+
+        var stacked_bar = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": "gender distribution at BC vs Other Universities",
+            "data": {"url": "data/otherschoolsgender.csv"},
+            "width": 400,
+            "height": 250,
+            "layer": [
+                {
+            "mark": "bar",
+                "encoding": {
+                "x": {
+                    "field": "School",
+                    "type": "ordinal",
+                    "title": "University"
+                },
+                "y": {
+                    "aggregate": "sum",
+                    "field": "Percent",
+                    "type": "quantitative"
+                },
+                "tooltip": [
+                    {"field": "Value", "type": "quantitative", "title": "Number of Students: "},
+                    {"field": "Percent", "type": "quantitative", "title": "Percentage: "}],
+                "color": {
+                    "field": "Type",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["Female", "Male"],
+                        "range": ["#ffb6c1", "#aec7e8"]
+                        }}
+                }}
+            ,
+            {"mark": "rule",
+            "encoding": {
+                "y":  {"field": "Percent", "aggregate": "mean" },
+                "size": {"value": 2},
+                "color": {"value": "grey"},
+                "strokeDash": {"signal": "strokeDash"}
+            }}
+        ]}
+        vegaEmbed('#stacked-bar', stacked_bar);
+    
+    
     </script>
 </body>
 </html>
