@@ -127,3 +127,7 @@ span {
     margin: auto;
     justify-content: center;
 }
+
+select {
+    width: 15%;
+}
