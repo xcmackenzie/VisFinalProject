@@ -1,4 +1,5 @@
-d3.csv("bcdemographics.csv", d3.autoType).then(data => {
+
+export default function LineChart(data) {
     console.log(data);
 
     function position(d) {
@@ -33,12 +34,15 @@ d3.csv("bcdemographics.csv", d3.autoType).then(data => {
         .attr("stroke-width", 4)
         .attr("stroke-linejoin", "round");
     }
-
-
  
-const margin = ({top: 20, right: 20, bottom: 40, left: 50});
-    const w = screen.availWidth - margin.left - margin.right - 100;
-    const h = 650 - margin.top - margin.bottom;
+    const margin = ({top: 20, right: 20, bottom: 40, left: 50});
+    const w = 700 - margin.left - margin.right;
+    const h = 450 - margin.top - margin.bottom;
+
+    let male = data.map(d => d.Male)
+    let female = data.map(d => d.Female)
+    let all = male.concat(female)
+
 
     var svg = d3.selectAll('.line-chart')
     .append("svg")
@@ -53,13 +57,13 @@ const margin = ({top: 20, right: 20, bottom: 40, left: 50});
         .range([0,w])
     
     var yScale = d3.scaleLinear()
-        .domain(d3.extent(data, d=>d.Male))
-        .domain(d3.extent(data, d=>d.Female))
+        .domain(d3.extent(all))
         .nice()
         .range([h,0])
         
     var xAxis = d3.axisBottom()
-        .scale(xScale);
+        .scale(xScale)
+        .tickFormat(d3.format("d"))
 
     var yAxis = d3.axisLeft()
         .scale(yScale)
@@ -129,7 +133,7 @@ const margin = ({top: 20, right: 20, bottom: 40, left: 50});
     var path = svg.append("path")
         .datum(data)
         .attr('fill', 'none')
-        .attr('stroke', 'turquoise')
+        .attr('stroke', 'lightskyblue')
         .attr('stroke-width', 3)
         .attr("d", line)
         .attr("stroke-dasharray", `0,${l}`)
@@ -158,7 +162,7 @@ const margin = ({top: 20, right: 20, bottom: 40, left: 50});
         .attr('cy', d=>yScale(d.Male))
         .attr('r', 4)
         .attr('stroke', 'white')
-        .attr('fill', 'turquoise');
+        .attr('fill', 'lightskyblue');
   
     var circle2 = svg.selectAll('circle2')
         .data(data)
@@ -181,15 +185,12 @@ const margin = ({top: 20, right: 20, bottom: 40, left: 50});
         .each(position)
         .attr('fill', 'none')
         .call(halo); 
-    
-
         
-        labels.attr("fill", 'none');
-        labels.transition()
-            .delay((d, i) => length(line(data.slice(0, i + 1))) / l * (5000))
-            .attr("opacity", 1)
-            .attr("fill", 'black');
+    labels.attr("fill", 'none');
+    labels.transition()
+        .delay((d, i) => length(line(data.slice(0, i + 1))) / l * (5000))
+        .attr("opacity", 1)
+        .attr("fill", 'black');
 
-});
-
+};
 
