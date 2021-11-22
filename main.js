@@ -1,5 +1,6 @@
 import Map from './charts/Map.js';
 import PieChart from './charts/PieChart.js';
+import LineChart from './charts/LineChart.js';
 
 d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
     d3.csv("data/bcschools.csv", d3.autoType).then(schools => {
@@ -9,6 +10,9 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                 //console.log(demographics)
                 //console.log(schools)
                 //console.log(states)
+
+                // Line Chart 
+                const demoLine = LineChart(demographics)
 
                 // Dot Plot
                 const label = document.getElementsByTagName("span")[0]

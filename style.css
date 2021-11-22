@@ -141,3 +141,9 @@ select {
 .single-container{
     margin-top: 30px;
 }
+
+svg {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
