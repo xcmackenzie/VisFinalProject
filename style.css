@@ -108,3 +108,22 @@ label {
 span {
     margin-right: 20px;
 }
+
+.form-control {
+    text-align: center;
+    width: 15%;
+    display: flex;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.school-select {
+    margin: 5px;
+    font-weight: bolder;
+}
+
+.pie-chart {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}

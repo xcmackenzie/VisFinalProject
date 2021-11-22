@@ -1,4 +1,5 @@
 import Map from './charts/Map.js';
+import PieChart from './charts/PieChart.js';
 
 d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
     d3.csv("data/bcschools.csv", d3.autoType).then(schools => {
@@ -12,6 +13,14 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                 // Dot Plot
                 const label = document.getElementsByTagName("span")[0]
                 label.innerHTML = "Select Year"
+
+                // School pie charts
+                let school_selection = document.getElementById('school-select')
+                const pie = PieChart()
+                pie.update('#school-pie-chart', "all")
+                school_selection.onchange = () => {
+                    pie.update('#school-pie-chart', school_selection.value)
+                }
 
                 // Maps
                 var filtered = states.filter(d => d.Year == 1976 || d.Year == 2020)
