@@ -24,20 +24,12 @@
     <div class="container">
         <div class = "title">
             <h1>
-                Boston College Demographics
+                Has BC Become More Diverse? <br><i style="font-size:35px">A look into the past 45 years</i>
             </h1>
+           
         </div>        
         <div class = "viz-container">
-            <h3>How has the gender distribution of students overall changed over time?</h3>
-                     <div class = "line-chart"></div>
-                <div class="user-control">
-        </select>
-      </div>
-            <div class = "row gender">
- 
-            <h3>What is the gender distribution within each school at BC?</h3> 
-                <div class = "pie-chart"></div>
-            </div>
+           
             <h3>How has the distribution of ethnicities changed over time? How does this compare to the ethnic distribution of the country overall?</h3>
             <div class = "row ethnicity">
                 <div class = "column">
@@ -83,9 +75,13 @@
             </div>
 
             <h3>How Do BC's Demographics Compare to Peer Institutions?</h3>
-            <div class = "column">
-                <div id = "stacked-bar"></div>
-            </div>
+            <div class = "row">
+                <div class = "column">
+                    <div id = "stacked-bar"></div>
+                </div>
+                <div class = "column">
+                    <div id = "stacked-bar2"></div>
+                </div>
         </div>
     </div>
     <div id ="map-tooltip" class = "hidden tooltip"></div>
@@ -232,7 +228,7 @@
 
         var stacked_bar = {
             "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "title": "gender distribution at BC vs Other Universities",
+            "title": "Gender Distribution at BC vs Peer Universities",
             "data": {"url": "data/otherschoolsgender.csv"},
             "width": 400,
             "height": 250,
@@ -248,7 +244,8 @@
                 "y": {
                     "aggregate": "sum",
                     "field": "Percent",
-                    "type": "quantitative"
+                    "type": "quantitative",
+                    "title": "Percentage of Students"
                 },
                 "tooltip": [
                     {"field": "Value", "type": "quantitative", "title": "Number of Students: "},
@@ -272,6 +269,38 @@
         ]}
         vegaEmbed('#stacked-bar', stacked_bar);
     
+        var stacked_bar2 = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": "Ethnicities at BC vs Peer Universities",
+            "data": {"url": "data/otherschoolsethnicity.csv"},
+            "width": 400,
+            "height": 250,
+            "layer": [
+                {
+            "mark": "bar",
+                "encoding": {
+                "x": {
+                    "field": "School",
+                    "type": "ordinal",
+                    "title": "University"
+                },
+                "y": {
+                    "aggregate": "sum",
+                    "field": "Percent",
+                    "type": "quantitative"
+                },
+                "tooltip": [
+                    {"field": "Value", "type": "quantitative", "title": "Number of Students: "},
+                    {"field": "Percent", "type": "quantitative", "title": "Percentage: "}],
+                "color": {
+                    "field": "Type",
+                    "type": "nominal",
+                    "scale": {"domain": ["Black", "Native American", "Asian" ,"Hispanic", "Two or More Races", "White"],
+                        "range": ["#7676ff","#ebebff", "#c4c4ff", "#9d9dff", "#4e4eff", "#2727ff"]
+                        }}
+                }}
+        ]}
+        vegaEmbed('#stacked-bar2', stacked_bar2);
     
     </script>
 </body>
