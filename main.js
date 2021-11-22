@@ -15,12 +15,8 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                 label.innerHTML = "Select Year"
 
                 // School pie charts
-                let school_selection = document.getElementById('school-select')
                 const pie = PieChart()
-                pie.update('#school-pie-chart', "all")
-                school_selection.onchange = () => {
-                    pie.update('#school-pie-chart', school_selection.value)
-                }
+                pie.embed('#school-pie-chart')
 
                 // Maps
                 var filtered = states.filter(d => d.Year == 1976 || d.Year == 2020)
