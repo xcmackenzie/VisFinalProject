@@ -73,7 +73,10 @@
                 <div class = "bar-chart"></div>
                 <div class = "area-chart"></div>
             </div>
-
+            <div class = "single-container">
+                <h3>How has the number of international students changed over time?</h3>
+                <div id = "intl-line-chart"></div>
+            </div>
             <h3>How Do BC's Demographics Compare to Peer Institutions?</h3>
             <div class = "row">
                 <div class = "column">
@@ -329,7 +332,22 @@
     }
 
         vegaEmbed('#stacked-bar2', stacked_bar2);
-    
+
+
+        var intl_line_chart = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": "Number of International Students vs. Year",
+            "width": "container",
+            "height": "container",
+            "data":{"url": "https://raw.githubusercontent.com/xcmackenzie/VisFinalProject/master/data/bcStudentsbyState.csv"},
+            "transform": [{"filter": "datum.Location==='International'"}],
+            "mark": {"type": "line", "tooltip": true},
+            "encoding": {
+                "x": {"field": "Year", "type": "temporal"},
+                "y": {"field": "Value", "type": "quantitative"}
+            }
+        }
+        vegaEmbed('#intl-line-chart',intl_line_chart)
     </script>
 </body>
 </html>
