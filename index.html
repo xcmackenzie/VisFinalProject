@@ -248,8 +248,22 @@
                     "title": "Percentage of Students"
                 },
                 "tooltip": [
-                    {"field": "Value", "type": "quantitative", "title": "Number of Students: "},
-                    {"field": "Percent", "type": "quantitative", "title": "Percentage: "}],
+                    {
+                        "field": "Type",
+                        "type": "nominal",
+                        "title": "Gender"
+                    },
+                    {
+                        "field": "Value",
+                        "type": "quantitative",
+                        "title": "Number of Students"
+                    },
+                    {
+                        "field": "Percent",
+                        "type": "quantitative",
+                        "title": "Percent (%)"
+                    }
+                ],
                 "color": {
                     "field": "Type",
                     "type": "nominal",
@@ -290,16 +304,30 @@
                     "type": "quantitative"
                 },
                 "tooltip": [
-                    {"field": "Value", "type": "quantitative", "title": "Number of Students: "},
-                    {"field": "Percent", "type": "quantitative", "title": "Percentage: "}],
+                    {
+                        "field": "Type",
+                        "type": "nominal",
+                        "title": "Ethnicity"
+                    },
+                    {
+                        "field": "Value",
+                        "type": "quantitative",
+                        "title": "Number of Students"
+                    },
+                    {
+                        "field": "Percent",
+                        "type": "quantitative",
+                        "title": "Percent (%)"
+                    }
+                ],
                 "color": {
                     "field": "Type",
                     "type": "nominal",
-                    "scale": {"domain": ["Black", "Native American", "Asian" ,"Hispanic", "Two or More Races", "White"],
-                        "range": ["#7676ff","#ebebff", "#c4c4ff", "#9d9dff", "#4e4eff", "#2727ff"]
-                        }}
+                    "scale": {"scheme": "set3"}
                 }}
-        ]}
+        }]
+    }
+
         vegaEmbed('#stacked-bar2', stacked_bar2);
     
     </script>
