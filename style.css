@@ -39,6 +39,9 @@ body {
 .button {
     border: 0.1rem solid teal;
     background-color: teal;
+    display: flex;
+    margin: auto;
+    margin-bottom: 15px;
 }
 
 p {
