@@ -289,10 +289,10 @@ var two_more_bar = {
     ],
     "transform": [{"filter": "datum.Year == Yr_Year"}],
     "encoding": {
-        "y": {"field": "Race", "type": "nominal"},
+        "y": {"field": "Ethnicity", "type": "nominal"},
         "x": {"field": "Percent", "type": "quantitative"},
         "color": {
-            "field": "Race",
+            "field": "Ethnicity",
             "type": "nominal",
             "scale": {
                 "domain": ["Asian", "Black", "Hispanic", "Native American", "White"],
