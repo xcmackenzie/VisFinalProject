@@ -1,5 +1,4 @@
 import Map from './charts/Map.js';
-import PieChart from './charts/PieChart.js';
 import LineChart from './charts/LineChart.js';
 
 d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
@@ -14,13 +13,11 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                 // Line Chart 
                 const demoLine = LineChart(demographics)
 
-                // Dot Plot
-                const label = document.getElementsByTagName("span")[0]
-                label.innerHTML = "Select Year"
-
-                // School pie charts
-                const pie = PieChart()
-                pie.embed('#school-pie-chart')
+                // Fix labels
+                var labels = document.getElementsByClassName("vega-bind-name")
+                for (const label of labels) {
+                    label.innerHTML = "Select Year"
+                }
 
                 // Maps
                 var filtered = states.filter(d => d.Year == 1976 || d.Year == 2020)
@@ -35,7 +32,7 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                     let filtered = states.filter(d => d.Location == clicked)
                     let values = filtered.map(d => d.Value)
 
-                    document.getElementById("state-name").innerHTML = "<br>" + clicked
+                    document.getElementById("state-name").innerHTML = clicked
 
                     document.getElementById("state-info").innerHTML = `1976: ${values[9]}<br>
                         1980: ${values[8]}<br>
@@ -53,7 +50,7 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                     let filtered = states.filter(d => d.Location == clicked)
                     let values = filtered.map(d => d.Value)
 
-                    document.getElementById("state-name").innerHTML = "<br>" + clicked
+                    document.getElementById("state-name").innerHTML = clicked
 
                     document.getElementById("state-info").innerHTML = `1976: ${values[9]}<br>
                         1980: ${values[8]}<br>
