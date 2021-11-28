@@ -1,1 +1,16 @@
-Year,Race,Value,Percent of Two or More2010,Hispanic,43,30.072010,Black,29,20.282010,Asian,56,39.162010,Native American,14,9.792010,White,114,79.722015,Hispanic,647,67.332015,Black,109,11.342015,Asian,179,18.632015,Native American,55,5.722015,White,838,87.202020,Hispanic,765,63.282020,Black,169,13.982020,Asian,296,24.482020,Native American,40,3.312020,White,1075,88.92
+Year,Race,Value,Percent
+2010,Black,29,20.28
+2010,Native American,14,9.79
+2010,Asian,56,39.16
+2010,Hispanic,43,30.07
+2010,White,114,79.72
+2015,Black,109,11.34
+2015,Native American,55,5.72
+2015,Asian,179,18.63
+2015,Hispanic,647,67.33
+2015,White,838,87.20
+2020,Black,169,13.98
+2020,Native American,40,3.31
+2020,Asian,296,24.48
+2020,Hispanic,765,63.28
+2020,White,1075,88.92
