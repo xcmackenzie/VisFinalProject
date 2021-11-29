@@ -174,20 +174,38 @@ export default function LineChart(data) {
         .attr('stroke', 'white')
         .attr('fill', 'pink');
         
-    var labels = svg.append("g").attr("class", "labels").selectAll("text")
+    var labels1 = svg.selectAll(".text")
         .data(data)
         .enter()
         .append("text")
-        .attr('x', d=>xScale(d.Year))
-        .attr('y', d=>yScale(d.Male), d=>yScale(d.Female))
-        .text(d=>d.year)
-        .attr('font-size', 14)
+        .attr('x', d=>xScale(d.Year) - 10)
+        .attr('y', d=>yScale(d.Male) - 10)
+        .text(d=>d.Male)
+        .attr('font-size', 12)
         .each(position)
         .attr('fill', 'none')
         .call(halo); 
         
-    labels.attr("fill", 'none');
-    labels.transition()
+    labels1.attr("fill", 'none');
+    labels1.transition()
+        .delay((d, i) => length(line(data.slice(0, i + 1))) / l * (5000))
+        .attr("opacity", 1)
+        .attr("fill", 'black');
+
+    var labels2 = svg.selectAll(".text")
+        .data(data)
+        .enter()
+        .append("text")
+        .attr('x', d=>xScale(d.Year) - 10)
+        .attr('y', d=>yScale(d.Female) + 20)
+        .text(d=>d.Female)
+        .attr('font-size', 12)
+        .each(position)
+        .attr('fill', 'none')
+        .call(halo); 
+
+    labels2.attr("fill", 'none');
+    labels2.transition()
         .delay((d, i) => length(line(data.slice(0, i + 1))) / l * (5000))
         .attr("opacity", 1)
         .attr("fill", 'black');
