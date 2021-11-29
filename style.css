@@ -150,3 +150,11 @@ svg {
     margin: 0 auto;
     margin-bottom: 20px;
 }
+
+.column {
+    justify-content: center;
+}
+
+#stacked-bar2 {
+    margin-top: 200px;
+}

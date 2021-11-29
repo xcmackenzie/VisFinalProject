@@ -36,8 +36,8 @@ export default function LineChart(data) {
     }
  
     const margin = ({top: 20, right: 20, bottom: 40, left: 50});
-    const w = 700 - margin.left - margin.right;
-    const h = 450 - margin.top - margin.bottom;
+    const w = 600 - margin.left - margin.right;
+    const h = 350 - margin.top - margin.bottom;
 
     let male = data.map(d => d.Male)
     let female = data.map(d => d.Female)
