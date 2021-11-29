@@ -119,7 +119,7 @@ var dot_plot = {
             "type": "ordinal",
             "title": "Source",
             "scale": {
-                "domain": ["BC", "US"],
+                "domain": ["BC", "USA"],
                 "range": ["darkred", "grey"]
             }
             },
