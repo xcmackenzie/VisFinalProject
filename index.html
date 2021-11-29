@@ -33,6 +33,7 @@
                 <div class = "column">
                     <div id="chartContainer">
                         <button id="button" class = "button">Update Chart Type</button>
+                        <p><strong>Number of Enrolled Undergraduate Students of Each Gender</strong></p>
                         <div class = "line-chart"></div>
                     </div>
                 </div>
@@ -57,16 +58,18 @@
             <h3>Changes in Ethnic Distribution</h3>
             <h5>We next turn to an analysis of the ethnic distribution of students enrolled in Boston College since 1976. In contrast to the more consistent gender patterns of BC, BC has generally become a more ethnically diverse school in the past 45 years, yet the change has been slow.</h5>
             <div class = "row ethnicity">
+                <div id = "stacked-area"></div>
+                <h5>Boston College has been, and continues to be, a majority-White school, though the White majority has decreased steadily throughout the years. Notably, the Asian population of the school has steadily increased in the past 45 years, while the Native American population has been consistently low. The Hispanic and Black populations have been reasonably variable throughout the years, showing no consistent pattern of growth.</h5>
+            </div>
+            <div class = "row twomore">
                 <div class = "column">
-                    <p><br></p>
-                    <div id = "stacked-area"></div>
+                    <h5><br><br><br>Furthermore, BC introduced a new "two or more races" category into its statistics in 2010. The visualization to the right breaks down the percent of students selecting the "two or more races" category who identify the given ethnicity as one of them. A high number of those identifying as two or more races identified either Hispanic or White as one them, which could possibly skew some of the patterns seen in the distribution of these ethnicities.</h5>
                 </div>
                 <div class = "column">
                     <p><i>Adjust the year slider below to begin!</i></p>
                     <div id = "two-more-bar"></div>
                 </div>
-            </div>  
-            <h5>Boston College has been, and continues to be, a majority-White school, though the White majority has decreased steadily throughout the years. Notably, the Asian population of the school has steadily increased in the past 45 years, while the Native American population has been consistently low. The Hispanic and Black populations have been reasonably variable throughout the years, showing no consistent pattern of growth. Furthermore, BC introduced a new "two or more races" category into its statistics in 2010. A high number of those identifying as two or more races identified either Hispanic or White as one them, which could possibly skew some of the patterns seen in the distribution of these ethnicities.</h5>
+            </div>
             <h5>To gain further insight into these ethnic distributions, we wanted to see how the distributions of BC compared to those of the United States overall.</h5>
             <div class = "row us-compare">
                 <div class = "column">
