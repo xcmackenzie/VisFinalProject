@@ -307,423 +307,337 @@ var two_more_bar = {
 
 vegaEmbed('#two-more-bar', two_more_bar)
 
-
 let pieCharts = {
-
-    "data": {
-      "url": "https://raw.githubusercontent.com/xcmackenzie/VisFinalProject/master/data/bcschools.csv"
-    },
-    "hconcat": [
-      {
-        "selection": {
-        "school_selector": {
-          "type": "single",
-          "fields": ["School"],
-          "bind": {
-            "input": "select",
-            "options": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-            "labels": [
-              "All",
-              "Morrissey College of Arts & Sciences",
-              "Lynch School of Education",
-              "Carroll School of Management",
-              "Connell School of Nursing",
-              "Woods College of Advancing Studies"
-            ],
-          "name": "Select School:"
-          }
+  "data": {"url": "https://raw.githubusercontent.com/xcmackenzie/VisFinalProject/master/data/bcschools.csv"},
+    "params": [{
+    "name": "select",
+    "select": {"type": "point", "fields": ["School"]},
+    "value": "All",
+    "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "MCAS",
+          "Lynch",
+          "CSOM",
+          "Nursing",
+          "Woods"
+        ],
+        "labels": [
+          "All",
+          "Morrissey College of Arts & Sciences",
+          "Lynch School of Education",
+          "Carroll School of Management",
+          "Connell School of Nursing",
+          "Woods College of Advancing Studies"
+        ],
+      "name": "Select School:"
+    }
+  }],
+  "hconcat": [{
+    "title": "1985",
+    "width": 75,
+    "height": 75,
+    "transform": [
+      {"filter": {"param": "select"}},
+      {"filter": "datum.Type != \"Total\""},
+      {"filter": "datum.Year == 1985"}
+    ],
+    "mark": {"type": "arc", "tooltip": true},
+    "encoding": {
+      "theta": {
+        "field": "Value",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Female", "Male"],
+          "range": ["pink", "lightskyblue"]
         }
       },
-      "title": "1985",
-      "width": 75,
-      "height": 75,
-      "transform": [
-        {"filter": {"selection": "school_selector"}},
-        {"filter": "datum.Type != \"Total\""},
-        {"filter": "datum.Year == 1985"}
-      ],
-      "mark": {"type": "arc", "tooltip": true},
-      "encoding": {
-        "theta": {
-          "field": "Value",
-          "type": "quantitative"
-        },
-        "color": {
+      "tooltip": [
+        {
           "field": "Type",
           "type": "nominal",
-          "scale": {
-            "domain": ["Female", "Male"],
-            "range": ["pink", "lightskyblue"]
-          }
-        }
-      }
-      },
-      {
-        "selection": {
-        "school_selector": {
-          "type": "single",
-          "fields": ["School"],
-          "bind": {
-            "input": "select",
-            "options": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-            "labels": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-          "name": "Select School:"
-          }
-        }
-      },
-      "title": "1990",
-      "width": 75,
-      "height": 75,
-      "transform": [
-        {"filter": {"selection": "school_selector"}},
-        {"filter": "datum.Type != \"Total\""},
-        {"filter": "datum.Year == 1990"}
-      ],
-      "mark": {"type": "arc", "tooltip": true},
-      "encoding": {
-        "theta": {
-          "field": "Value",
-          "type": "quantitative"
+          "title": "Gender"
         },
-        "color": {
+        {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Number of Students",
+          "format": ","
+        }
+      ]
+    }
+  },
+  {
+    "title": "1990",
+    "width": 75,
+    "height": 75,
+    "transform": [
+      {"filter": {"param": "select"}},
+      {"filter": "datum.Type != \"Total\""},
+      {"filter": "datum.Year == 1990"}
+    ],
+    "mark": {"type": "arc", "tooltip": true},
+    "encoding": {
+      "theta": {
+        "field": "Value",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Female", "Male"],
+          "range": ["pink", "lightskyblue"]
+        }
+      },
+      "tooltip": [
+        {
           "field": "Type",
           "type": "nominal",
-          "scale": {
-            "domain": ["Female", "Male"],
-            "range": ["pink", "lightskyblue"]
-          }
-        }
-      }
-      },
-      {
-        "selection": {
-        "school_selector": {
-          "type": "single",
-          "fields": ["School"],
-          "bind": {
-            "input": "select",
-            "options": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-            "labels": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-          "name": "Select School:"
-          }
-        }
-      },
-      "title": "1995",
-      "width": 75,
-      "height": 75,
-      "transform": [
-        {"filter": {"selection": "school_selector"}},
-        {"filter": "datum.Type != \"Total\""},
-        {"filter": "datum.Year == 1995"}
-      ],
-      "mark": {"type": "arc", "tooltip": true},
-      "encoding": {
-        "theta": {
-          "field": "Value",
-          "type": "quantitative"
+          "title": "Gender"
         },
-        "color": {
+        {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Number of Students",
+          "format": ","
+        }
+      ]
+    }
+  },
+  {
+    "title": "1995",
+    "width": 75,
+    "height": 75,
+    "transform": [
+      {"filter": {"param": "select"}},
+      {"filter": "datum.Type != \"Total\""},
+      {"filter": "datum.Year == 1995"}
+    ],
+    "mark": {"type": "arc", "tooltip": true},
+    "encoding": {
+      "theta": {
+        "field": "Value",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Female", "Male"],
+          "range": ["pink", "lightskyblue"]
+        }
+      },
+      "tooltip": [
+        {
           "field": "Type",
           "type": "nominal",
-          "scale": {
-            "domain": ["Female", "Male"],
-            "range": ["pink", "lightskyblue"]
-          }
-        }
-      }
-      },
-      {
-        "selection": {
-        "school_selector": {
-          "type": "single",
-          "fields": ["School"],
-          "bind": {
-            "input": "select",
-            "options": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-            "labels": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-          "name": "Select School:"
-          }
-        }
-      },
-      "title": "2000",
-      "width": 75,
-      "height": 75,
-      "transform": [
-        {"filter": {"selection": "school_selector"}},
-        {"filter": "datum.Type != \"Total\""},
-        {"filter": "datum.Year == 2000"}
-      ],
-      "mark": {"type": "arc", "tooltip": true},
-      "encoding": {
-        "theta": {
-          "field": "Value",
-          "type": "quantitative"
+          "title": "Gender"
         },
-        "color": {
+        {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Number of Students",
+          "format": ","
+        }
+      ]
+    }
+  },
+  {
+    "title": "2000",
+    "width": 75,
+    "height": 75,
+    "transform": [
+      {"filter": {"param": "select"}},
+      {"filter": "datum.Type != \"Total\""},
+      {"filter": "datum.Year == 2000"}
+    ],
+    "mark": {"type": "arc", "tooltip": true},
+    "encoding": {
+      "theta": {
+        "field": "Value",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Female", "Male"],
+          "range": ["pink", "lightskyblue"]
+        }
+      },
+      "tooltip": [
+        {
           "field": "Type",
           "type": "nominal",
-          "scale": {
-            "domain": ["Female", "Male"],
-            "range": ["pink", "lightskyblue"]
-          }
-        }
-      }
-      },
-      {
-        "selection": {
-        "school_selector": {
-          "type": "single",
-          "fields": ["School"],
-          "value": "All",
-          "bind": {
-            "input": "select",
-            "options": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-            "labels": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-          "name": "Select School:"
-          }
-        }
-      },
-      "title": "2005",
-      "width": 75,
-      "height": 75,
-      "transform": [
-        {"filter": {"selection": "school_selector"}},
-        {"filter": "datum.Type != \"Total\""},
-        {"filter": "datum.Year == 2005"}
-      ],
-      "mark": {"type": "arc", "tooltip": true},
-      "encoding": {
-        "theta": {
-          "field": "Value",
-          "type": "quantitative"
+          "title": "Gender"
         },
-        "color": {
+        {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Number of Students",
+          "format": ","
+        }
+      ]
+    }
+  },
+  {
+    "title": "2005",
+    "width": 75,
+    "height": 75,
+    "transform": [
+      {"filter": {"param": "select"}},
+      {"filter": "datum.Type != \"Total\""},
+      {"filter": "datum.Year == 2005"}
+    ],
+    "mark": {"type": "arc", "tooltip": true},
+    "encoding": {
+      "theta": {
+        "field": "Value",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Female", "Male"],
+          "range": ["pink", "lightskyblue"]
+        }
+      },
+      "tooltip": [
+        {
           "field": "Type",
           "type": "nominal",
-          "scale": {
-            "domain": ["Female", "Male"],
-            "range": ["pink", "lightskyblue"]
-          }
-        }
-      }
-      },
-      {
-        "selection": {
-        "school_selector": {
-          "type": "single",
-          "fields": ["School"],
-          "bind": {
-            "input": "select",
-            "options": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-            "labels": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-          "name": "Select School:"
-          }
-        }
-      },
-      "title": "2010",
-      "width": 75,
-      "height": 75,
-      "transform": [
-        {"filter": {"selection": "school_selector"}},
-        {"filter": "datum.Type != \"Total\""},
-        {"filter": "datum.Year == 2010"}
-      ],
-      "mark": {"type": "arc", "tooltip": true},
-      "encoding": {
-        "theta": {
-          "field": "Value",
-          "type": "quantitative"
+          "title": "Gender"
         },
-        "color": {
+        {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Number of Students",
+          "format": ","
+        }
+      ]
+    }
+  },
+  {
+    "title": "2010",
+    "width": 75,
+    "height": 75,
+    "transform": [
+      {"filter": {"param": "select"}},
+      {"filter": "datum.Type != \"Total\""},
+      {"filter": "datum.Year == 2010"}
+    ],
+    "mark": {"type": "arc", "tooltip": true},
+    "encoding": {
+      "theta": {
+        "field": "Value",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Female", "Male"],
+          "range": ["pink", "lightskyblue"]
+        }
+      },
+      "tooltip": [
+        {
           "field": "Type",
           "type": "nominal",
-          "scale": {
-            "domain": ["Female", "Male"],
-            "range": ["pink", "lightskyblue"]
-          }
-        }
-      }
-      },
-      {
-        "selection": {
-        "school_selector": {
-          "type": "single",
-          "fields": ["School"],
-          "bind": {
-            "input": "select",
-            "options": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-            "labels": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-          "name": "Select School:"
-          }
-        }
-      },
-      "title": "2015",
-      "width": 75,
-      "height": 75,
-      "transform": [
-        {"filter": {"selection": "school_selector"}},
-        {"filter": "datum.Type != \"Total\""},
-        {"filter": "datum.Year == 2015"}
-      ],
-      "mark": {"type": "arc", "tooltip": true},
-      "encoding": {
-        "theta": {
-          "field": "Value",
-          "type": "quantitative"
+          "title": "Gender"
         },
-        "color": {
+        {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Number of Students",
+          "format": ","
+        }
+      ]
+    }
+  },
+  {
+    "title": "2015",
+    "width": 75,
+    "height": 75,
+    "transform": [
+      {"filter": {"param": "select"}},
+      {"filter": "datum.Type != \"Total\""},
+      {"filter": "datum.Year == 2015"}
+    ],
+    "mark": {"type": "arc", "tooltip": true},
+    "encoding": {
+      "theta": {
+        "field": "Value",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Female", "Male"],
+          "range": ["pink", "lightskyblue"]
+        }
+      },
+      "tooltip": [
+        {
           "field": "Type",
           "type": "nominal",
-          "scale": {
-            "domain": ["Female", "Male"],
-            "range": ["pink", "lightskyblue"]
-          }
-        }
-      }
-      },
-      {
-        "selection": {
-        "school_selector": {
-          "type": "single",
-          "fields": ["School"],
-          "bind": {
-            "input": "select",
-            "options": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-            "labels": [
-              "All",
-              "MCAS",
-              "Lynch",
-              "CSOM",
-              "Nursing",
-              "Woods"
-            ],
-          "name": "Select School:"
-          }
-        }
-      },
-      "title": "2020",
-      "width": 75,
-      "height": 75,
-      "transform": [
-        {"filter": {"selection": "school_selector"}},
-        {"filter": "datum.Type != \"Total\""},
-        {"filter": "datum.Year == 2020"}
-      ],
-      "mark": {"type": "arc", "tooltip": true},
-      "encoding": {
-        "theta": {
-          "field": "Value",
-          "type": "quantitative"
+          "title": "Gender"
         },
-        "color": {
+        {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Number of Students",
+          "format": ","
+        }
+      ]
+    }
+  },
+  {
+    "title": "2020",
+    "width": 75,
+    "height": 75,
+    "transform": [
+      {"filter": {"param": "select"}},
+      {"filter": "datum.Type != \"Total\""},
+      {"filter": "datum.Year == 2020"}
+    ],
+    "mark": {"type": "arc", "tooltip": true},
+    "encoding": {
+      "theta": {
+        "field": "Value",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Female", "Male"],
+          "range": ["pink", "lightskyblue"]
+        }
+      },
+      "tooltip": [
+        {
           "field": "Type",
           "type": "nominal",
-          "scale": {
-            "domain": ["Female", "Male"],
-            "range": ["pink", "lightskyblue"]
-          }
+          "title": "Gender"
+        },
+        {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Number of Students",
+          "format": ","
         }
-      }
-      }
-    ]
-  }
+      ]
+    }
+  }]
+}
 
 vegaEmbed("#school-pie-chart", pieCharts)
