@@ -99,6 +99,7 @@ var dot_plot = {
         {
         "params": [{
             "name": "Yr",
+            "value": 1980,
             "select": {"type": "point", "fields": ["Year"]},
             "bind": {
             "Year": {
@@ -277,6 +278,7 @@ var two_more_bar = {
     "mark": {"type": "bar", "tooltip": true},
     "params": [{
         "name": "Yr",
+        "value": 2010,
         "select": {"type": "point", "fields": ["Year"]},
         "bind": {
         "Year": {
@@ -521,6 +523,7 @@ let pieCharts = {
         "school_selector": {
           "type": "single",
           "fields": ["School"],
+          "value": "All",
           "bind": {
             "input": "select",
             "options": [
