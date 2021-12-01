@@ -16,7 +16,9 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                 // Fix labels
                 var labels = document.getElementsByClassName("vega-bind-name")
                 for (const label of labels) {
-                    label.innerHTML = "Select School"
+                    if (label.innerHTML == "Yr_Year") {
+                        label.innerHTML = "Select Year:"
+                    }
                 }
 
                 // Maps
