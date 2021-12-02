@@ -50,6 +50,10 @@ body {
     width: 20%;
 }
 
+.button.back {
+    width: 15%;
+}
+
 p {
     margin: 10px;
     text-align: center;
