@@ -130,8 +130,8 @@ var dot_plot = {
         }
     ]
 }
-vegaEmbed('#stacked-area', stacked_area);
-vegaEmbed('#dot-plot', dot_plot);
+vegaEmbed('#stacked-area', stacked_area, {"actions": false});
+vegaEmbed('#dot-plot', dot_plot, {"actions": false});
 
 var stacked_bar = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -186,9 +186,16 @@ var stacked_bar = {
         "size": {"value": 2},
         "color": {"value": "grey"},
         "strokeDash": {"signal": "strokeDash"}
-    }}
+    }},
+    {
+      "mark": {"type": "text", "align": "left", "x": 405},
+        "encoding": {
+          "y": {"value": 125},
+          "text": {"value": "50/50"}
+        }
+    }
 ]}
-vegaEmbed('#stacked-bar', stacked_bar);
+vegaEmbed('#stacked-bar', stacked_bar, {"actions": false});
 
 var stacked_bar2 = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -235,7 +242,7 @@ var stacked_bar2 = {
 }]
 }
 
-vegaEmbed('#stacked-bar2', stacked_bar2);
+vegaEmbed('#stacked-bar2', stacked_bar2, {"actions": false});
 
 
 var intl_line_chart = {
@@ -267,7 +274,7 @@ var intl_line_chart = {
     ]
     }
 }
-vegaEmbed('#intl-line-chart',intl_line_chart)
+vegaEmbed('#intl-line-chart', intl_line_chart, {"actions": false})
 
 var two_more_bar = {
     "title": "Students Identifying Each Ethnicity as One of Their Two or More Ethnicities",
@@ -305,7 +312,7 @@ var two_more_bar = {
     }
 }
 
-vegaEmbed('#two-more-bar', two_more_bar)
+vegaEmbed('#two-more-bar', two_more_bar, {"actions": false})
 
 let pieCharts = {
   "data": {"url": "https://raw.githubusercontent.com/xcmackenzie/VisFinalProject/master/data/bcschools.csv"},
@@ -640,4 +647,4 @@ let pieCharts = {
   }]
 }
 
-vegaEmbed("#school-pie-chart", pieCharts)
+vegaEmbed("#school-pie-chart", pieCharts, {"actions": false})

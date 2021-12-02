@@ -42,6 +42,12 @@ body {
     display: flex;
     margin: auto;
     margin-bottom: 15px;
+    justify-content: center;
+    width: auto;
+}
+
+.button.about {
+    width: 20%;
 }
 
 p {
@@ -157,4 +163,9 @@ svg {
 
 #stacked-bar2 {
     margin-top: 200px;
+}
+
+canvas {
+    margin-left: 15px;
+    margin-right: 15px;
 }

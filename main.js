@@ -21,6 +21,20 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                     }
                 }
 
+                let line = true
+                let button = document.getElementById("button")         
+                d3.select("#button").on('click', () => {
+                    line = !line
+                    if (line) {
+                        // Switch to line chart
+                        button.innerText = "Show Percentage Breakdown"
+                    }
+                    else {
+                        // Switch to stacked area
+                        button.innerText = "Show Enrollment Numbers"
+                    }
+                })
+
                 // Maps
                 var filtered = states.filter(d => d.Year == 1976 || d.Year == 2020)
                 var domain = d3.extent(filtered, d => d.Value)
@@ -36,16 +50,16 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
 
                     document.getElementById("state-name").innerHTML = clicked
 
-                    document.getElementById("state-info").innerHTML = `1976: ${values[9]}<br>
-                        1980: ${values[8]}<br>
-                        1985: ${values[7]}<br>
-                        1990: ${values[6]}<br>
-                        1995: ${values[5]}<br>
-                        2000: ${values[4]}<br>
-                        2005: ${values[3]}<br>
-                        2010: ${values[2]}<br>
-                        2015: ${values[1]}<br>
-                        2020: ${values[0]}`
+                    document.getElementById("state-info").innerHTML = `1976: ${values[9]} students<br>
+                        1980: ${values[8]} students<br>
+                        1985: ${values[7]} students<br>
+                        1990: ${values[6]} students<br>
+                        1995: ${values[5]} students<br>
+                        2000: ${values[4]} students<br>
+                        2005: ${values[3]} students<br>
+                        2010: ${values[2]} students<br>
+                        2015: ${values[1]} students<br>
+                        2020: ${values[0]} students`
                 })
 
                 map2020.on("click", (clicked) => {
@@ -54,16 +68,16 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
 
                     document.getElementById("state-name").innerHTML = clicked
 
-                    document.getElementById("state-info").innerHTML = `1976: ${values[9]}<br>
-                        1980: ${values[8]}<br>
-                        1985: ${values[7]}<br>
-                        1990: ${values[6]}<br>
-                        1995: ${values[5]}<br>
-                        2000: ${values[4]}<br>
-                        2005: ${values[3]}<br>
-                        2010: ${values[2]}<br>
-                        2015: ${values[1]}<br>
-                        2020: ${values[0]}`
+                    document.getElementById("state-info").innerHTML = `1976: ${values[9]} students<br>
+                        1980: ${values[8]} students<br>
+                        1985: ${values[7]} students<br>
+                        1990: ${values[6]} students<br>
+                        1995: ${values[5]} students<br>
+                        2000: ${values[4]} students<br>
+                        2005: ${values[3]} students<br>
+                        2010: ${values[2]} students<br>
+                        2015: ${values[1]} students<br>
+                        2020: ${values[0]} students`
                 })
             })
         })

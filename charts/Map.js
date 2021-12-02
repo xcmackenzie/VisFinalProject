@@ -17,7 +17,7 @@ export default function Map(container, data, statemap, year, domain) {
 
     let colorScale = d3.scaleSqrt()
         .domain(domain)
-        .range(["white", "blue"])
+        .range(["white", "#1f77b4"])
 
     // Draw Map
     const projection = d3.geoAlbersUsa()
@@ -47,7 +47,7 @@ export default function Map(container, data, statemap, year, domain) {
             .attr("transform", event.transform)
     }
 
-    svg.call(zoom)
+    //svg.call(zoom)
 
     // Update coloring
 
