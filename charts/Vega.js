@@ -17,11 +17,11 @@ var stacked_area = {
         "x": {
             "field": "Year",
             "title": "Year",
-            "type": "temporal"
+            "type": "temporal",
         },
         "y": {
             "field": "Total",
-            "title": "Total",
+            "title": "Number of Students",
             "type": "quantitative"
         },
         "color": {
@@ -72,7 +72,7 @@ var dot_plot = {
         "x": {
             "field": "Percent",
             "type": "quantitative",
-            "title": "Percent"
+            "title": "Percentage"
         },
         "y": {
             "field": "Ethnicity",
@@ -215,7 +215,8 @@ var stacked_bar2 = {
         "y": {
             "aggregate": "sum",
             "field": "Percent",
-            "type": "quantitative"
+            "type": "quantitative",
+            "title": "Percentage"
         },
         "tooltip": [
             {
@@ -237,8 +238,12 @@ var stacked_bar2 = {
         "color": {
             "field": "Type",
             "type": "nominal",
-            "scale": {"scheme": "set3"}
-        }}
+            "scale": {
+              "domain": ["Asian", "Black", "Hispanic", "Native American", "Two or More Races", "White", "N/A"],
+              "range": ["#8dd3c7", "#ffffb3", "#bebada", "#fb8072", "#80b1d3", "#fdb462", "#d9d9d9"]
+            }
+        },
+        "order": {"value": ["N/A", "Asian", "Black", "Hispanic", "Native American", "Two or More Races", "White"]}}
 }]
 }
 
@@ -255,7 +260,7 @@ var intl_line_chart = {
     "mark": {"type": "line", "tooltip": true, "point": true},
     "encoding": {
         "x": {"field": "Year", "type": "temporal"},
-        "y": {"field": "Percent", "type": "quantitative"},
+        "y": {"field": "Percent", "type": "quantitative", "title": "Percentage of Students"},
         "tooltip": [
         {
             "field": "Year",
@@ -265,11 +270,13 @@ var intl_line_chart = {
         },
         {
             "field": "Value",
-            "type": "quantitative"
+            "type": "quantitative",
+            "title": "Number of Students"
         },
         {
             "field": "Percent",
-            "type": "quantitative"
+            "type": "quantitative",
+            "title": "Percent (%)"
         }
     ]
     }
@@ -299,7 +306,7 @@ var two_more_bar = {
     "transform": [{"filter": "datum.Year == Yr_Year"}],
     "encoding": {
         "y": {"field": "Ethnicity", "type": "nominal"},
-        "x": {"field": "Percent", "type": "quantitative"},
+        "x": {"field": "Percent", "type": "quantitative", "title": "Percentage of Students"},
         "color": {
             "field": "Ethnicity",
             "type": "nominal",
@@ -362,7 +369,8 @@ let pieCharts = {
         "scale": {
           "domain": ["Female", "Male"],
           "range": ["pink", "lightskyblue"]
-        }
+        },
+        "legend": {"title": "Gender"}
       },
       "tooltip": [
         {
