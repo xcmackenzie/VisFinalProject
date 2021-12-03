@@ -1,11 +1,12 @@
 import Map from './charts/Map.js';
 import LineChart from './charts/LineChart.js';
+import USMap from './charts/USMap.js';
 
 d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
     d3.csv("data/bcschools.csv", d3.autoType).then(schools => {
         d3.csv("data/bcStudentsbyState.csv", d3.autoType).then(states => {
             d3.json("data/us-states.json", d3.autoType).then(statemap => {
-
+                d3.csv("data/statepopulation.csv", d3.autoType).then(population => {
                 //console.log(demographics)
                 //console.log(schools)
                 //console.log(states)
@@ -39,6 +40,8 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                 var filtered = states.filter(d => d.Year == 1976 || d.Year == 2020)
                 var domain = d3.extent(filtered, d => d.Value)
 
+                const mapUS = USMap(".map-us", population, statemap)
+                mapUS.on_events()
                 const map1976 = Map(".map-1976", states, statemap, 1976, domain)
                 map1976.on_events(states)
                 const map2020 = Map(".map-2020", states, statemap, 2020, domain)
@@ -78,6 +81,7 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                         2010: ${values[2]} students<br>
                         2015: ${values[1]} students<br>
                         2020: ${values[0]} students`
+                    })
                 })
             })
         })
