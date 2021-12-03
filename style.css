@@ -1,23 +1,38 @@
 .title {
     text-align: center;
-    padding: 10px;
     margin: 25px;
+    font-family: "Times New Roman", Times, serif;
 }
 
 h1 {
     text-align: center;
     font-weight: bold;
-    background-color: lightblue;
-    padding: 10px;
+    color: #8a100b;
     margin: 20px;
     margin-top: 5px;
-    border: 2px solid dimgrey;
+    font-size: 55px;
+}
+
+h4{
+    color:#484848;
+    font-size: 22px;
+    line-height: 1pt;
+    font-style: italic;
+}
+h3 {
+    color:#8a100b;
+    
+
+}
+
+h5 {
+    color:#7a787c;
+    font-size: 20px;
 }
 
 body {
     background-color: whitesmoke;
     margin: 5px;
-    padding: 20px;
     font-family: "Times New Roman", Times, serif;
 }
 
@@ -32,13 +47,13 @@ body {
 }
 
 .button.button-outline {
-    color: teal;
+    color: #8a6b46;
     background-color: white;
 }
 
 .button {
-    border: 0.1rem solid teal;
-    background-color: teal;
+    border: 0.1rem solid #8a6b46;
+    background-color: #8a6b46;
     display: flex;
     margin: auto;
     margin-bottom: 15px;
@@ -68,10 +83,6 @@ h2 {
     text-align: center;
     color: darkgrey;
     font-weight: bold;
-}
-
-h4 {
-    text-align: center;
 }
 
 .year-input{
