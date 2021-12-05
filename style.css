@@ -34,6 +34,7 @@ body {
     background-color: whitesmoke;
     margin: 5px;
     font-family: "Times New Roman", Times, serif;
+    padding-bottom: 70px;
 }
 
 .form-control {
@@ -81,7 +82,7 @@ select {
 
 h2 {
     text-align: center;
-    color: darkgrey;
+    color:#8a100b;
     font-weight: bold;
 }
 
