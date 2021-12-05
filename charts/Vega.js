@@ -8,9 +8,7 @@ var stacked_area = {
         {"filter": "datum.Source == \"BC\""}
         ],
     "params": [{
-        "name": "grid",
-        "select": "interval",
-        "bind": "scales"
+        "name": "grid"
     }],
     "mark": {"type": "area", "tooltip": true},
     "encoding": {
