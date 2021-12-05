@@ -41,6 +41,7 @@ export default function USMap(container, data, statemap) {
             var data_state = object.State
             if (state == data_state) {
                 feat.properties.Value = object.Population
+                feat.properties.Percent = object.Percent
             }
         }
     }
@@ -71,7 +72,8 @@ export default function USMap(container, data, statemap) {
                     }
                     else {
                         return `State: ${d.properties.name} <br>
-                        Population: ${d3.format(",")(d.properties.Value)} <br>`
+                        Population: ${d3.format(",")(d.properties.Value)} <br>
+                        Percent of US Population:  ${d3.format(".1%")(d.properties.Percent)} `
                     }
                 })
                 
