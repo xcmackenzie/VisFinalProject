@@ -91,7 +91,9 @@ export default function Map(container, data, statemap, year, domain) {
                     }
                     else {
                         return `State: ${d.properties.name} <br>
-                        Number of Students: ${d3.format(",")(d.properties.Value)} <br>`
+                        Number of Students: ${d3.format(",")(d.properties.Value)} <br>
+                        Percent of Students:  ${d3.format("%")(d.properties.Percent)} `
+                        
                     }
                 })
                 
