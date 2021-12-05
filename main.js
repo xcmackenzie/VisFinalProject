@@ -1,6 +1,7 @@
 import Map from './charts/Map.js';
-import LineChart from './charts/LineChart.js';
+//import LineChart from './charts/LineChart.js';
 import USMap from './charts/USMap.js';
+import GenderChart from './charts/GenderChart.js';
 
 d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
     d3.csv("data/bcschools.csv", d3.autoType).then(schools => {
@@ -12,7 +13,22 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                 //console.log(states)
 
                 // Line Chart 
-                const demoLine = LineChart(demographics)
+                const genderChart = GenderChart(demographics)
+                genderChart.updateLine(demographics)
+                let line = true
+
+                let button = document.getElementById("button")         
+                d3.select("#button").on('click', () => {
+                    line = !line
+                    if (line) {
+                        button.innerText = "Show Percentage Breakdown"
+                        genderChart.updateLine(demographics)
+                    }
+                    else {
+                        button.innerText = "Show Enrollment Numbers"
+                        genderChart.updateBar(demographics)
+                    }
+                })
 
                 // Fix labels
                 var labels = document.getElementsByClassName("vega-bind-name")
@@ -21,20 +37,6 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                         label.innerHTML = "Select Year:"
                     }
                 }
-
-                let line = true
-                let button = document.getElementById("button")         
-                d3.select("#button").on('click', () => {
-                    line = !line
-                    if (line) {
-                        // Switch to line chart
-                        button.innerText = "Show Percentage Breakdown"
-                    }
-                    else {
-                        // Switch to stacked area
-                        button.innerText = "Show Enrollment Numbers"
-                    }
-                })
 
                 // Maps
                 var filtered = states.filter(d => d.Year == 1976 || d.Year == 2020)
