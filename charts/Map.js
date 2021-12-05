@@ -112,6 +112,7 @@ export default function Map(container, data, statemap, year, domain) {
                         var data_state = object.Location
                         if (state == data_state) {
                             feat.properties.Value = object.Value
+                            feat.properties.Percent = object.Percent
                         }
                     }
                 }
