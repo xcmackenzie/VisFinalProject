@@ -61,6 +61,7 @@ var dot_plot = {
         }
         }
     },
+    "padding": {"left": 20, "right": 20, "top": 10, "bottom": 10},
     "transform": [
         {"filter": "datum.Year == Yr_Year"}
     ],
@@ -228,7 +229,7 @@ var stacked_bar2 = {
                 "title": "Percent (%)",
             }
         ],
-        "order": {"value": ["N/A", "Asian", "Black", "Hispanic", "Native American", "Two or More Races", "White"]},
+        "order": {"field": "Order"},
         "color": {
             "field": "Type",
             "type": "nominal",
@@ -282,7 +283,7 @@ var two_more_bar = {
     "title": "Students Identifying Each Ethnicity as One of Their Two or More Ethnicities",
     "width": 300,
     "height": 240,
-    "padding": {"left": 55, "right": 20, "top": 10, "bottom": 10},
+    "padding": {"left": 25, "right": 20, "top": 10, "bottom": 10},
     "data": {"url": "https://raw.githubusercontent.com/xcmackenzie/VisFinalProject/master/data/twoormore.csv"},
     "mark": {"type": "bar", "tooltip": true},
     "params": [{
