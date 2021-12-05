@@ -61,9 +61,11 @@ export default function Map(container, data, statemap, year, domain) {
             var data_state = object.Location
             if (state == data_state) {
                 feat.properties.Value = object.Value
+                feat.properties.Percent = object.Percent
             }
         }
     }
+
 
     map.transition()
         .attr("fill", d => colorScale(d.properties.Value))
@@ -92,7 +94,7 @@ export default function Map(container, data, statemap, year, domain) {
                     else {
                         return `State: ${d.properties.name} <br>
                         Number of Students: ${d3.format(",")(d.properties.Value)} <br>
-                        Percent of Students:  ${d3.format("%")(d.properties.Percent)} `
+                        Percent of Students:  ${d3.format(".1%")(d.properties.Percent)} `
                         
                     }
                 })
