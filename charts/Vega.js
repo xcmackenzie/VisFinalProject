@@ -223,11 +223,6 @@ var stacked_bar2 = {
                 "title": "Ethnicity"
             },
             {
-                "field": "Value",
-                "type": "quantitative",
-                "title": "Number of Students"
-            },
-            {
                 "field": "Percent",
                 "type": "quantitative",
                 "title": "Percent (%)",
