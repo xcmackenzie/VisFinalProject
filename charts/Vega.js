@@ -70,7 +70,7 @@ var dot_plot = {
         "x": {
             "field": "Percent",
             "type": "quantitative",
-            "title": "Percentage"
+            "title": "Percent (%)"
         },
         "y": {
             "field": "Ethnicity",
@@ -214,7 +214,7 @@ var stacked_bar2 = {
             "aggregate": "sum",
             "field": "Percent",
             "type": "quantitative",
-            "title": "Percentage"
+            "title": "Percentage (%)"
         },
         "tooltip": [
             {
@@ -230,18 +230,20 @@ var stacked_bar2 = {
             {
                 "field": "Percent",
                 "type": "quantitative",
-                "title": "Percent (%)"
+                "title": "Percent (%)",
             }
         ],
+        "order": {"value": ["N/A", "Asian", "Black", "Hispanic", "Native American", "Two or More Races", "White"]},
         "color": {
             "field": "Type",
             "type": "nominal",
             "scale": {
               "domain": ["Asian", "Black", "Hispanic", "Native American", "Two or More Races", "White", "N/A"],
-              "range": ["#8dd3c7", "#ffffb3", "#bebada", "#fb8072", "#80b1d3", "#fdb462", "#d9d9d9"]
+              "range": ["#8dd3c7", "#ffffb3", "#bebada", "#fb8072", "#80b1d3", "#fdb462", "#d9d9d9"],
+
             }
         },
-        "order": {"value": ["N/A", "Asian", "Black", "Hispanic", "Native American", "Two or More Races", "White"]}}
+        }
 }]
 }
 
@@ -381,6 +383,12 @@ let pieCharts = {
           "type": "quantitative",
           "title": "Number of Students",
           "format": ","
+        },
+        {
+          "field": "Percent",
+          "type": "quantitative",
+          "title": "Percent (%)",
+
         }
       ]
     }
@@ -419,6 +427,11 @@ let pieCharts = {
           "type": "quantitative",
           "title": "Number of Students",
           "format": ","
+        },
+        {
+          "field": "Percent",
+          "type": "quantitative",
+          "title": "Percent (%)"
         }
       ]
     }
@@ -457,6 +470,11 @@ let pieCharts = {
           "type": "quantitative",
           "title": "Number of Students",
           "format": ","
+        },
+        {
+          "field": "Percent",
+          "type": "quantitative",
+          "title": "Percent (%)"
         }
       ]
     }
@@ -495,6 +513,11 @@ let pieCharts = {
           "type": "quantitative",
           "title": "Number of Students",
           "format": ","
+        },
+        {
+          "field": "Percent",
+          "type": "quantitative",
+          "title": " Percent (%)"
         }
       ]
     }
@@ -533,6 +556,11 @@ let pieCharts = {
           "type": "quantitative",
           "title": "Number of Students",
           "format": ","
+        },
+        {
+          "field": "Percent",
+          "type": "quantitative",
+          "title": " Percent (%)"
         }
       ]
     }
@@ -571,6 +599,11 @@ let pieCharts = {
           "type": "quantitative",
           "title": "Number of Students",
           "format": ","
+        },
+        {
+          "field": "Percent",
+          "type": "quantitative",
+          "title": "Percent (%)"
         }
       ]
     }
@@ -609,6 +642,11 @@ let pieCharts = {
           "type": "quantitative",
           "title": "Number of Students",
           "format": ","
+        },
+        {
+          "field": "Percent",
+          "type": "quantitative",
+          "title": " Percent (%)"
         }
       ]
     }
@@ -647,6 +685,11 @@ let pieCharts = {
           "type": "quantitative",
           "title": "Number of Students",
           "format": ","
+        },
+        {
+          "field": "Percent",
+          "type": "quantitative",
+          "title": " Percent (%)"
         }
       ]
     }
