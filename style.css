@@ -187,3 +187,11 @@ canvas {
 .row.map2 {
     justify-content: center;
 }
+
+.members {
+    color: #8a6b46;
+}
+
+select[name=select_School] {
+    width: 30%;
+}
