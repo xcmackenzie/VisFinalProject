@@ -69,8 +69,14 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
 
                 map2020.on("click", (clicked) => {
                     let filtered = states.filter(d => d.Location == clicked)
+                    let filter2020 = filtered.filter(d => d.Year == 2020)
                     let values = filtered.map(d => d.Value)
+                    let bcPercent = filter2020.map(d => d.Percent) *100
 
+                    let usfilter = population.filter(d => d.State == clicked)
+                    let usPercent = usfilter.map(d => d.Percent) *100
+                    
+                    
                     document.getElementById("state-name").innerHTML = clicked
 
                     document.getElementById("state-info").innerHTML = `1976: ${values[9]} students<br>
@@ -83,6 +89,10 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                         2010: ${values[2]} students<br>
                         2015: ${values[1]} students<br>
                         2020: ${values[0]} students`
+                        
+                        document.getElementById("map-comp").innerHTML = 
+                        `In 2020 ${usPercent}% of the US population is from ${clicked} compared to ${(bcPercent)}% of the BC student body`
+                    
                     })
                 })
             })
