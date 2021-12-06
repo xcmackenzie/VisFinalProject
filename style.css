@@ -214,3 +214,11 @@ select[name=select_School] {
     justify-content:center;
     margin: 25px;    
 }
+
+.button.contributions {
+    width: 30%;
+}
+
+.button.back.contributions {
+    width: 20%;
+}
