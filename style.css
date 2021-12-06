@@ -208,3 +208,9 @@ select[name=select_School] {
     font-size: 17px;
     margin: 20px;
 }
+
+.showcase{
+    display: flex;
+    justify-content:center;
+    margin: 25px;    
+}
