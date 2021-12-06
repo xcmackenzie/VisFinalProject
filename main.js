@@ -13,6 +13,9 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                 //console.log(schools)
                 //console.log(states)
 
+                let format_comma = d3.format(",")
+                let format_decimal = d3.format(".2f")
+
                 // Line Chart 
                 const genderChart = GenderChart(demographics)
                 genderChart.updateLine(demographics)
@@ -43,8 +46,6 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                 var filtered = states.filter(d => d.Year == 1980 || d.Year == 2020)
                 var domain = d3.extent(filtered, d => d.Value)
 
-                const mapUS = USMap(".map-us", population, statemap)
-                mapUS.on_events()
                 const map1980 = Map(".map-1980", states, statemap, 1980, domain)
                 map1980.on_events(states)
                 const map2020 = Map(".map-2020", states, statemap, 2020, domain)
@@ -52,28 +53,29 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
 
                 map1980.on("click", (clicked) => {
                     let filtered = states.filter(d => d.Location == clicked)
-                    let filter2020 = filtered.filter(d => d.Year == 1980)
+                    let filter1980 = filtered.filter(d => d.Year == 1980)
                     let values = filtered.map(d => d.Value)
-                    let bcPercent = filter2020.map(d => d.Percent) *100
+                    let bcPercent = format_decimal(filter1980.map(d => d.Percent) * 100)
 
                     let usfilter = population.filter(d => d.State == clicked)
-                    let usPercent = usfilter.map(d => d.Percent) *100
+                    let usfilter1980 = usfilter.filter(d => d.Year == 1980)
+                    let usPercent = format_decimal(usfilter1980.map(d => d.Percent) * 100)
 
                     document.getElementById("state-name").innerHTML = clicked
 
-                    document.getElementById("state-info").innerHTML = `1976: ${values[9]} students<br>
-                        1980: ${values[8]} students<br>
-                        1985: ${values[7]} students<br>
-                        1990: ${values[6]} students<br>
-                        1995: ${values[5]} students<br>
-                        2000: ${values[4]} students<br>
-                        2005: ${values[3]} students<br>
-                        2010: ${values[2]} students<br>
-                        2015: ${values[1]} students<br>
-                        2020: ${values[0]} students`
+                    document.getElementById("state-info").innerHTML = `1976: ${format_comma(values[9])} students<br>
+                        1980: ${format_comma(values[8])} students<br>
+                        1985: ${format_comma(values[7])} students<br>
+                        1990: ${format_comma(values[6])} students<br>
+                        1995: ${format_comma(values[5])} students<br>
+                        2000: ${format_comma(values[4])} students<br>
+                        2005: ${format_comma(values[3])} students<br>
+                        2010: ${format_comma(values[2])} students<br>
+                        2015: ${format_comma(values[1])} students<br>
+                        2020: ${format_comma(values[0])} students`
                     
                     document.getElementById("map-comp").innerHTML = 
-                        `In 1980 ${usPercent}% of the US population is from ${clicked} compared to ${(bcPercent)}% of the BC student body`
+                        `In 1980, <strong>${usPercent}%</strong> of the US population is from ${clicked} compared to <strong>${(bcPercent)}%</strong> of the BC student body`
                         
                 })
 
@@ -82,27 +84,28 @@ d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
                     let filtered = states.filter(d => d.Location == clicked)
                     let filter2020 = filtered.filter(d => d.Year == 2020)
                     let values = filtered.map(d => d.Value)
-                    let bcPercent = filter2020.map(d => d.Percent) *100
+                    let bcPercent = format_decimal(filter2020.map(d => d.Percent) * 100)
 
                     let usfilter = population.filter(d => d.State == clicked)
-                    let usPercent = usfilter.map(d => d.Percent) *100
+                    let usfilter2020 = usfilter.filter(d => d.Year == 2020)
+                    let usPercent = format_decimal(usfilter2020.map(d => d.Percent) * 100)
                     
                     
                     document.getElementById("state-name").innerHTML = clicked
 
-                    document.getElementById("state-info").innerHTML = `1976: ${values[9]} students<br>
-                        1980: ${values[8]} students<br>
-                        1985: ${values[7]} students<br>
-                        1990: ${values[6]} students<br>
-                        1995: ${values[5]} students<br>
-                        2000: ${values[4]} students<br>
-                        2005: ${values[3]} students<br>
-                        2010: ${values[2]} students<br>
-                        2015: ${values[1]} students<br>
-                        2020: ${values[0]} students`
+                    document.getElementById("state-info").innerHTML = `1976: ${format_comma(values[9])} students<br>
+                        1980: ${format_comma(values[8])} students<br>
+                        1985: ${format_comma(values[7])} students<br>
+                        1990: ${format_comma(values[6])} students<br>
+                        1995: ${format_comma(values[5])} students<br>
+                        2000: ${format_comma(values[4])} students<br>
+                        2005: ${format_comma(values[3])} students<br>
+                        2010: ${format_comma(values[2])} students<br>
+                        2015: ${format_comma(values[1])} students<br>
+                        2020: ${format_comma(values[0])} students`
                         
                         document.getElementById("map-comp").innerHTML = 
-                        `In 2020 ${usPercent}% of the US population is from ${clicked} compared to ${(bcPercent)}% of the BC student body`
+                        `In 2020, <strong>${usPercent}%</strong> of the US population is from ${clicked} compared to <strong>${(bcPercent)}%</strong> of the BC student body`
                         
                         })
                     })
