@@ -1,6 +1,4 @@
 import Map from './charts/Map.js';
-//import LineChart from './charts/LineChart.js';
-import USMap from './charts/USMap.js';
 import GenderChart from './charts/GenderChart.js';
 
 d3.csv("data/bcdemographics.csv", d3.autoType).then(demographics => {
