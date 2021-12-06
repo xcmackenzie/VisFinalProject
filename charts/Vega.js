@@ -249,8 +249,8 @@ vegaEmbed('#stacked-bar2', stacked_bar2, {"actions": false});
 var intl_line_chart = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Percent of International Students vs. Year",
-    "width": 500,
-    "height": 300,
+    "width": 400,
+    "height": 250,
     "data":{"url": "https://raw.githubusercontent.com/xcmackenzie/VisFinalProject/master/data/bcStudentsbyState.csv"},
     "transform": [{"filter": "datum.Location==='International'"}],
     "mark": {"type": "line", "tooltip": true, "point": true},
