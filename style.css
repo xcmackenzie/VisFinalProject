@@ -203,3 +203,8 @@ select[name=select_School] {
     color: black;
 
 }
+
+#map-comp {
+    font-size: 17px;
+    margin: 20px;
+}
