@@ -693,3 +693,19 @@ let pieCharts = {
 }
 
 vegaEmbed("#school-pie-chart", pieCharts, {"actions": false})
+
+var ethnicity_line_chart = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Black and Hispanic percentages at BC vs rest of US",
+  "width": 500,
+  "height": 300,
+  "data":{"url": "https://raw.githubusercontent.com/xcmackenzie/VisFinalProject/master/data/bcethnicity.csv"},
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "Year", "type": "temporal"},
+    "y": {"field": "Percent", "type": "quantitative", "title": "Percentage of Students"},
+    "color": {"field": "symbol", "type": "nominal"}
+  },
+  "transform": [{"filter": "datum.Ethnicity==='Black'|| 'Hispanic'"}],
+}
+vegaEmbed('#ethnicity-line-chart', ethnicity_line_chart, {"actions": false})
