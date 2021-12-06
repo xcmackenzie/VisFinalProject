@@ -697,7 +697,7 @@ vegaEmbed("#school-pie-chart", pieCharts, {"actions": false})
 
 var ethnicity_line_chart = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Percentage of Black People at BC vs rest of US",
+  "title": "Percentage of Black People at BC vs the United States",
   "width": 500,
   "height": 300,
   "data":{"url": "https://raw.githubusercontent.com/xcmackenzie/VisFinalProject/master/data/bcethnicity.csv"},
