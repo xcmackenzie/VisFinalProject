@@ -705,7 +705,11 @@ var ethnicity_line_chart = {
       "encoding": {
         "x": {"field": "Year", "type": "temporal"},
         "y": {"field": "Percent", "type": "quantitative", "title": "Percentage of Students"},
-        "color": {"field": "Source", "type": "nominal"},
+        "color": {"field": "Source", "type": "nominal",
+        "scale": {
+          "domain": ["BC", "USA"],
+          "range": ["#8a100b", "#7a787c"],
+            }},
         "tooltip": [
           {
               "field": "Year",
