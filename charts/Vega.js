@@ -694,18 +694,42 @@ let pieCharts = {
 
 vegaEmbed("#school-pie-chart", pieCharts, {"actions": false})
 
+
 var ethnicity_line_chart = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Black and Hispanic percentages at BC vs rest of US",
+  "title": "Percentage of Black People at BC vs rest of US",
   "width": 500,
   "height": 300,
   "data":{"url": "https://raw.githubusercontent.com/xcmackenzie/VisFinalProject/master/data/bcethnicity.csv"},
-  "mark": "line",
-  "encoding": {
-    "x": {"field": "Year", "type": "temporal"},
-    "y": {"field": "Percent", "type": "quantitative", "title": "Percentage of Students"},
-    "color": {"field": "symbol", "type": "nominal"}
-  },
-  "transform": [{"filter": "datum.Ethnicity==='Black'|| 'Hispanic'"}],
-}
+      "mark": {"type": "line", "tooltip": true, "point": true},
+      "encoding": {
+        "x": {"field": "Year", "type": "temporal"},
+        "y": {"field": "Percent", "type": "quantitative", "title": "Percentage of Students"},
+        "color": {"field": "Source", "type": "nominal"},
+        "tooltip": [
+          {
+              "field": "Year",
+              "type": "temporal",
+              "timeUnit": "year",
+              "title": "Year"
+          },
+          {
+            "field": "Ethnicity",
+            "title": "Ethnicity"
+          },
+          {
+              "field": "Percent",
+              "type": "quantitative",
+              "title": "Percent (%)"
+          },
+          {
+            "field": "Source",
+            "type":"nominal",
+            "title": "Source"
+          },
+      ]
+      },
+      "transform": [{"filter": "datum.Ethnicity==='Black'"}]
+    }
+
 vegaEmbed('#ethnicity-line-chart', ethnicity_line_chart, {"actions": false})
